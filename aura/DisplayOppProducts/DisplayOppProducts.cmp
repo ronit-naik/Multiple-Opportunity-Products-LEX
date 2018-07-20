@@ -1,0 +1,79 @@
+<aura:component controller="OppProductsController" implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId">
+    <ltng:require styles="/resource/SLDS0120/assets/styles/salesforce-lightning-design-system-ltng.css" />
+    
+    <aura:attribute name="result" type="List"/>
+    <aura:attribute name="selected" type="List"/>
+    <aura:attribute name="oppId" type="String"/>
+    
+    <aura:handler event="c:SelectedRange" action="{!c.handleSelect}" />
+    <div class="slds">
+        <div id="res1"><h2 class="slds-section-title--divider" id="result">Results</h2></div>
+        <div id="tab1" style="display:none">
+            <table id="table1" class="slds-table slds-table--bordered slds-table--striped">
+                <thead>
+                    <tr class="slds-text-heading--small">
+                        <th scope="col"><span class="slds-truncate"></span></th>
+                        <th scope="col"><span class="slds-truncate">Product Name</span></th>
+                        <th scope="col"><span class="slds-truncate">Product Code</span></th>
+                        <th scope="col"><span class="slds-truncate">List Price</span></th>
+                        <th scope="col"><span class="slds-truncate">Quantity</span></th>
+                        <th scope="col"><span class="slds-truncate">Sales Price</span></th>
+                        <th scope="col"><span class="slds-truncate">Product Family</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.result}" var="res">
+                        <tr>
+                            <td><span class=""  data-record="{!res.Id}"><ui:inputCheckbox aura:id="cb" value="{!res.flag}"/></span></td>
+                            <td><a href="{!'/'+res.pbe.Product2.Id}" title="{!res.pbe.Name}">{!res.pbe.Name}</a></td>         
+                            <td>{!res.pbe.ProductCode}</td>
+                            <td><ui:outputCurrency value="{!res.pbe.UnitPrice}"></ui:outputCurrency></td>
+                            <td><ui:inputText value="{!res.quantity}"></ui:inputText></td>
+                            <td><ui:inputText aura:id="inp" value="{!res.salesPrice}"></ui:inputText></td>
+                            <td>{!res.pbe.Product2.Family}</td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+            
+            <div id="addButt">
+                <button id="butt" class="slds-button slds-button--brand" onclick="{!c.checkedValue}">Select Products</button>
+            </div>
+        </div>
+        <div id="res2"><h2 class="slds-section-title--divider" id="result2">Selected Products</h2></div>
+        <div id="tab2" style="display:none">
+            <table id="table2" class="slds-table slds-table--bordered slds-table--striped">
+                <thead>
+                    <tr class="slds-text-heading--small">
+                        <th scope="col"><span class="slds-truncate">Product Name</span></th>
+                        <th scope="col"><span class="slds-truncate">Product Code</span></th>
+                        <th scope="col"><span class="slds-truncate">List Price</span></th>
+                        <th scope="col"><span class="slds-truncate">Quantity</span></th>
+                        <th scope="col"><span class="slds-truncate">Sales Price</span></th>
+                        <th scope="col"><span class="slds-truncate">Product Family</span></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.selected}" var="res">
+                        <tr>
+                            <td><a href="{!'/'+res.pbe.Product2.Id}" title="{!res.pbe.Name}">{!res.pbe.Name}</a></td>         
+                            <td>{!res.pbe.ProductCode}</td>
+                            <td><ui:outputCurrency value="{!res.pbe.UnitPrice}"></ui:outputCurrency></td>
+                            <td>{!res.quantity}</td>
+                            <td><ui:outputCurrency value="{!res.salesPrice}"></ui:outputCurrency></td>
+                            <td>{!res.pbe.Product2.Family}</td>
+                            <td><button id="{!res.pbe.Id}" class="slds-button slds-button--destructive" onclick="{!c.deleteProducts}">Delete</button></td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+            <div id="saveButt">
+                <button id="butt2" class="slds-button slds-button--brand" onclick="{!c.saveProducts}">Save Products</button>
+                <button id="butt3" class="slds-button slds-button--destructive" onclick="{!c.clearProducts}">Clear</button>
+            </div>
+        </div>
+    </div>
+    
+    
+</aura:component>

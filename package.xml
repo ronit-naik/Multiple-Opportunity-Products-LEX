@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Add Multiple Products LEX</fullName>
+    <types>
+        <members>OppProductsController</members>
+        <members>OppProductsTestClass</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>DisplayOppProducts</members>
+        <members>FilterOppProducts</members>
+        <members>SelectedRange</members>
+        <members>svgIcon</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>BS_Slider_css</members>
+        <members>BS_Slider_js</members>
+        <members>SLDS0120</members>
+        <members>jqueryminDC</members>
+        <name>StaticResource</name>
+    </types>
+    <version>43.0</version>
+</Package>

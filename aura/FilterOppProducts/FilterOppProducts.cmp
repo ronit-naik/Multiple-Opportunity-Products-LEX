@@ -1,0 +1,76 @@
+<aura:component controller="OppProductsController" implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId">
+    <ltng:require styles="/resource/BS_Slider_css,/resource/SLDS0120/assets/styles/salesforce-lightning-design-system-ltng.css"
+                  scripts="/resource/jquery,/resource/BS_Slider_js"
+                  afterScriptsLoaded="{!c.jsLoaded}">
+    </ltng:require>
+    
+    
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="lval1" type="String" default="10"/>
+    <aura:attribute name="rval1" type="String" default="2000"/>
+    
+    <aura:attribute name="pickval" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:attribute name="contactLevel" type="String[]" default="Primary Contact, Secondary Contact, Other"/>
+    
+    
+    <div class="slds">
+        <div class="slds-modal slds-modal--large" aria-hidden="false" role="dialog" id="modal">
+            <div class="slds-modal__container">
+                
+                <div id="head" class="slds-modal__header">
+                    <button class="slds-button slds-button--icon-inverse slds-modal__close" onclick="{!c.closeModal}">
+                        <c:svgIcon svgPath="/resource/SLDS0120/assets/icons/utility-sprite/svg/symbols.svg#close" />
+                        
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <div class="slds-page-header" role="banner">
+                        <div class="slds-grid">
+                            <div id="div1" class="slds-col slds-has-flexi-truncate">
+                                
+                                <h2 id="head" class="slds-text-heading--medium">Find Products</h2>
+                                <div id="filter">
+                                    <div class='panel-body' id="values">
+                                        <div id="val">
+                                            <span class="amount" id="vals"></span>
+                                        </div>
+                                        <p class="text"></p>
+                                        <div class="slider-container" id="slide">
+                                            <span>
+                                                <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" >Product List Price:</h1>
+                                            </span>
+                                            <span>10</span>
+                                            <input class='span2' data-slider-step="10" data-slider-min='10' data-slider-max="4000"  data-slider-value='[100,1000]' data-slider-tooltip="hide" id='prices' type='text' value=''/>
+                                            <span>4000</span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div id="butt">    
+                                        <button class="slds-button slds-button--brand" onclick="{!c.sendValues}">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="slds-modal__content slds-p-around--medium">
+                    <div>
+                        <c:DisplayOppProducts />
+                        
+                    </div>
+                </div>
+                <div id="cancel" class="slds-modal__footer">
+                    <button class="slds-button slds-button--neutral" onclick="{!c.closeModal}">Cancel</button>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop" id="backdrop"></div>
+        
+        <!-- Button To Open Modal -->
+        <button class="slds-button slds-button--brand" id="toggleBtn">Add Products</button>
+    </div>
+</aura:component>

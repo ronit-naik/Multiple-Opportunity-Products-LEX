@@ -1,0 +1,70 @@
+.THIS {
+}
+.THIS h2#head
+{
+    float : left !important;
+    font-weight: bold;
+}
+.THIS #div1
+{
+    display:inherit;
+    height: 29px;
+}
+.THIS div#filter 
+{
+    display: flex;
+    width: 880px;
+    margin-left: 100px;
+}
+.THIS div#modal
+{
+    top:80px !important;
+}
+.THIS div#butt {
+    margin-left: 58px;
+    margin-top: -6px;
+}
+.THIS div#head
+{
+    height:100px;
+    border-bottom: white !important;
+}
+
+
+.THIS .tooltip-inner{
+    display: none;
+}
+.THIS .slider.slider-horizontal{
+    width:200px !important;
+}
+.THIS .uiInput.uiInputSelect.uiInput--default.uiInput--select
+{
+    width: 216px;
+    height: 39px;
+    margin-left: 350px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.THIS .slider-container
+{
+    
+    text-align:center;
+}
+.THIS p.text {
+    
+}
+
+.THIS .search_button
+{
+    margin-top: 36px;
+    margin-left: 412px;
+}
+
+.THIS .slider-container2
+{
+    padding-bottom:15px;
+}
+.THIS.slds .slds-truncate
+{
+    display:inline;
+}

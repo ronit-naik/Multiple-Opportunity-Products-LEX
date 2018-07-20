@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="Event template" >
+    <aura:attribute name="selected_left1" type="String"/>
+    <aura:attribute name="selected_right1" type="String"/>
+    <aura:attribute name="oppId" type="Id"/>
+</aura:event>

@@ -1,0 +1,37 @@
+.THIS table#table1
+{
+    margin-top: -16px !important;
+    margin-bottom: 16px !important;
+}
+.THIS button#butt
+{
+    margin-left: 552px !important;
+}
+.THIS div#addButt
+{
+    margin-bottom: 15px !important;
+}
+.THIS table#table2
+{
+    margin-bottom: 16px !important;
+}
+.THIS button#butt2
+{
+    margin-left: 490px !important;
+    margin-right: 18px !important;
+}
+.THIS h2#result 
+{
+    margin-left: 0px;
+    margin-right: 0px;
+    
+}
+.THIS h2#result2 
+{
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 40px;
+}
+.THIS div#res1 {
+    margin-bottom: 32px;
+}
